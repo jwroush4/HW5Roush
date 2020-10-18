@@ -1,2 +1,11 @@
-bench::mark(llr_functions.R)
-bench::mark()
+install.package(microbenchmark)
+
+
+
+microbench::microbench("llr_functions.R")
+
+cat(llr_functions.R)
+
+
+
+
