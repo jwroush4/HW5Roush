@@ -1,10 +1,9 @@
 install.package(microbenchmark)
 library(microbenchmark)
 
-source('llr_functions.R')
-microbench(out=llr_functions.R)
-
-cat(llr_functions.R)
+source("llr_functions.R")
+microbench(out="llr_functions.R")
+print(microbenchmark(out="llr_functions.R"))
 
 
 
