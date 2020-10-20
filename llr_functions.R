@@ -21,11 +21,12 @@ llr <- function(x, y, z, omega) {
 #' @param omega (numeric) must be a scalar
 #' @return (numeric) scalar
 compute_f_hat <- function(z, x, y, omega) {
-  Wz <- diag(z, x, omega)
+  Wz <- (z, x, omega)
   X <- make_predictor_matrix(x)
-  f_hat <- c(1, z) %*% solve(t(X) %*% apply(X,2,function(v) v*Wz)) %*% t(X) %*% Wz*y
+  f_hat <- c(1, z) %*% solve(t(X) %*% sweep(X, 1, Wz, "*") %*% t(X) %*% vectorize(`*`)(Wz, y)
   return(f_hat)
 }
+
 
 #' @param z (numeric) must be a scalar
 #' @param x (numeric) vector of arbitrary length
