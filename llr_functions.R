@@ -23,7 +23,7 @@ llr <- function(x, y, z, omega) {
 compute_f_hat <- function(z, x, y, omega) {
   Wz <- diag(z, x, omega)
   X <- make_predictor_matrix(x)
-  f_hat <- c(1, z) %*% solve(t(X) %*% sweep(X, 1, Wz, "*")) %*% t(X) %*% vectorize("*")(Wz, y)
+  f_hat <- c(1, z) %*% solve(t(X) %*% sweep(X, 1, Wz, "*")) %*% t(X) %*% Wz*y
   return(f_hat)
 }
 
