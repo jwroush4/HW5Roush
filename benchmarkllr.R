@@ -1,4 +1,4 @@
-install.package(microbenchmark)
+
 library(microbenchmark)
 
 source("llr_functions.R")  
